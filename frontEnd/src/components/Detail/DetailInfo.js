@@ -35,7 +35,7 @@ function DetailInfo({ product }) {
           <a href="">
             <strong>0% Lãi suất</strong>
             <br></br>
-            <span>(Review by TMART)</span>
+            <span>(Review by ONLINE SHOP)</span>
           </a>
           <a href="">
             <strong>Thanh toán VIA CARD</strong>

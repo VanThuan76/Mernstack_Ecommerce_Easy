@@ -25,12 +25,12 @@ function MenuOrder() {
     <div className="myorder-menu">
       <div className={location?.pathname === "/myOrder" ? "myorder-menu-item active" : "myorder-menu-item"}>
         <Link to={"/myOrder"} className="btn-order">
-          All
+          Tất cả
         </Link>
       </div>
       <div className={location?.pathname === "/myOrder/pendding" ? "myorder-menu-item active" : "myorder-menu-item"}>
         <Link to="/myOrder/pendding" className="btn-order">
-          Processing
+          Quá trình
         </Link>
         {myOrdersPendding?.length > 0 ? (
           <div className="myorder-menu-item-newPendding">{myOrdersPendding.length}</div>
@@ -40,7 +40,7 @@ function MenuOrder() {
       </div>
       <div className={location?.pathname === "/myOrder/shipping" ? "myorder-menu-item active" : "myorder-menu-item"}>
         <Link to="/myOrder/shipping" className="btn-order">
-          Delivering
+          Vận chuyển
         </Link>
         {myOrdersShipping?.length > 0 ? (
           <div className="myorder-menu-item-newShipping">{myOrdersShipping.length}</div>
@@ -50,7 +50,7 @@ function MenuOrder() {
       </div>
       <div className={location?.pathname === "/myOrder/paid" ? "myorder-menu-item active" : "myorder-menu-item"}>
         <Link to="/myOrder/paid" className="btn-order">
-          Delivered
+          Giao hàng
         </Link>
       </div>
     </div>

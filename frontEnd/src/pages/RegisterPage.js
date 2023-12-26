@@ -4,9 +4,7 @@ import Register from "../components/Register/Register";
 
 function RegisterPage() {
   return (
-    <Layout>
       <Register />
-    </Layout>
   );
 }
 

@@ -1,5 +1,6 @@
 import multer from "multer";
 import path from "path";
+import nodemailer from 'nodemailer';
 
 export const upload = multer({
   storage: multer.diskStorage({}),
@@ -20,3 +21,29 @@ export function PinComment(arr, fromIndex, toIndex) {
 
   return arr;
 }
+
+const transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: 'datcong110602@gmail.com',
+    pass: 'msth egsy vrnq hhlb',
+  },
+});
+
+export const sendEmail = ((req, res) => {
+  const mailOptions = {
+    from: 'datcong110602@gmail.com', // Địa chỉ email của bạn
+    to: req.email, // Địa chỉ email người nhận
+    subject: 'Đăng ký', // Tiêu đề email
+    text: "OKe", // Nội dung email
+  };
+  transporter.sendMail(mailOptions, function (error, info) {
+    if (error) {
+      console.error(error);
+      return;
+    } else {
+      console.log('Email sent: ' + info.response);
+      return;
+    }
+  });
+});

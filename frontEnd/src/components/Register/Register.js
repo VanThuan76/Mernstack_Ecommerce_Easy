@@ -30,7 +30,7 @@ function Register() {
         <form onSubmit={handleSubmit(onSubmit)} classname="form-signup">
           <input {...register("name")} placeholder="Tên" required></input>
           <input {...register("email")} placeholder="Email" type="email" required></input>
-          <input
+          {/* <input
             {...register("password")}
             placeholder="Mật khẩu"
             type="password"
@@ -43,7 +43,7 @@ function Register() {
             type="password"
             onChange={(e) => setConfirmPassword(e.target.value)}
             required
-          ></input>
+          ></input> */}
 
           <input type="submit" value="Đăng ký"></input>
         </form>

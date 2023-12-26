@@ -7,12 +7,12 @@ function ListUser({ users }) {
       <table>
         <tbody>
           <tr>
-            <th>No.</th>
-            <th>Name</th>
+            <th>STT</th>
+            <th>Tên</th>
             <th>Email</th>
-            <th>Address</th>
-            <th>Phone</th>
-            <th style={{ width: 100 }}>Action</th>
+            <th>Địa chỉ</th>
+            <th>Số điện thoại</th>
+            <th style={{ width: 100 }}>Hành động</th>
           </tr>
           {users.map((item, index) => (
             <User user={item} number={index} key={index} />

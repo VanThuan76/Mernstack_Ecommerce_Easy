@@ -8,6 +8,7 @@ const User = mongoose.Schema(
     address: { type: String },
     phone: { type: String },
     isAdmin: { type: Boolean },
+    isBlock: { type: Boolean },
   },
   {
     timestamps: true,

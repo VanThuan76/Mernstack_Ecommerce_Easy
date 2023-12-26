@@ -73,13 +73,13 @@ function Payment({ isVerified }) {
         >
           Thanh toán khi nhận hàng
         </button>
-        <button
+        {/* <button
           type="submit"
           className={choosePay.payOnline ? "active" : ""}
           onClick={() => payOnline()}
         >
           Thanh toán online
-        </button>
+        </button> */}
       </div>
       {choosePay.payLater ? (
         <div className="customer-order">

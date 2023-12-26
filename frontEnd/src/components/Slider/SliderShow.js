@@ -88,19 +88,19 @@ function SliderShow(props) {
               focusOnSelect={true}
             >
               <div className="des-item-slider">
-                Combo rau củ sạch <br></br> Giá siêu ưu đãi
+                Giảm giá sập sàn <br></br> Ưu đãi ngập tràn
               </div>
               <div className="des-item-slider">
-                Combo nước hoa quả <br></br> Hotsale giảm sập sàn
+                Càng mua <br></br> Càng rẻ
               </div>
               <div className="des-item-slider">
-                Tasty burger <br></br> Giá mới cực tốt
+                Ưu đãi trả góp <br></br> Nhân dịp cuối năm
               </div>
               <div className="des-item-slider">
-                Món chay <br></br> Ăn đi chờ chi
+                Chính sách bảo hành <br></br> Siêu ưu đãi
               </div>
               <div className="des-item-slider">
-                Snacks hoa quả <br></br> Sale bung nóc
+                Giảm giá shock <br></br> Toàn bộ mặt hàng
               </div>
             </Slider>
           </div>

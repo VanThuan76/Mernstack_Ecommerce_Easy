@@ -1,5 +1,5 @@
 .login-container {
-  border: 1px solid #89B9AD;
+  border: 1px solid #BE3144;
   border-radius: 20px;
   width: 30%;
   margin: 50px auto;
@@ -45,7 +45,7 @@
 }
 
 .login-page input[type="submit"] {
-  background: #89B9AD;
+  background: #BE3144;
   color: white;
   width: 100%;
   border-radius: 6px;

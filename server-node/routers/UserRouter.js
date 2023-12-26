@@ -1,5 +1,6 @@
 import express from "express";
 import {
+  blockUser,
   changePassword,
   deleteUser,
   getAllUser,
@@ -24,5 +25,6 @@ UserRouter.put("/password", protect, changePassword);
 
 UserRouter.get("/detail/:id", getUserById);
 UserRouter.get("/", protect, admin, getAllUser);
+UserRouter.put('/block/:id',  protect, admin, blockUser);
 
 export default UserRouter;

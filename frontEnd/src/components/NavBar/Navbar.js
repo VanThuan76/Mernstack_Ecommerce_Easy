@@ -45,7 +45,7 @@ function Navbar() {
         <div className="logo">
           <span>
             <Link to="/">
-              <p className="text-logo">TMART</p>
+              <p className="text-logo">ONLINE SHOP</p>
             </Link>
           </span>
         </div>

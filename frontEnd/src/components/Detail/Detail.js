@@ -29,7 +29,7 @@ function Detail() {
               </div>
               <div>
                 <ul className="text-description">
-                  <li>Thực phẩm, thành phần 100% mới và tươi</li>
+                  <li>Mặt hàng mới 100%</li>
                   <li>Nguồn gốc suất xứ từ Việt Nam</li>
                   <li>
                     Cam kết hạn sử dụng và chất lượng đảm bảo đi kèm

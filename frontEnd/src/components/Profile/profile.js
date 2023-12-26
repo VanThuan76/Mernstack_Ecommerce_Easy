@@ -49,21 +49,21 @@ function Profile() {
         <Layout>
             <div className="profile-contain">
                 <div>
-                    <img style={{ borderRadius: "25%" }} src="/images/logo.jpg"></img>
+                    <img width={300} style={{ borderRadius: "25%" }} src="/images/logo.jpg"></img>
                 </div>
                 <div>
-                    <h1 style={{ padding: "10px" }}>Information</h1>
+                    <h1 style={{ padding: "10px" }}>Cập nhật thông tin</h1>
                     {detailUser ? (
                         <form className="admin-create-product" onSubmit={handleSubmit(onSubmit)} encType="multipart/form-data">
-                            <label>Name</label>
+                            <label>Tên</label>
                             <input {...register("name")} placeholder="Name" defaultValue={detailUser.name}></input>
                             <label>Email</label>
                             <input {...register("email")} placeholder="Email" defaultValue={detailUser.email}></input>
-                            <label>Address</label>
+                            <label>Địa chỉ</label>
                             <input {...register("address")} placeholder="Address" defaultValue={detailUser.address}></input>
-                            <label>Phone</label>
+                            <label>Số điện thoại</label>
                             <input {...register("phone")} placeholder="Phone" defaultValue={detailUser.phone}></input>
-                            <label>Password</label>
+                            <label>Mật khẩu</label>
                             <input
                                 {...register("password")}
                                 placeholder="Mật khẩu"
@@ -71,7 +71,7 @@ function Profile() {
                                 onChange={(e) => setPassword(e.target.value)}
                                 defaultValue={detailUser.password}
                             ></input>
-                            <label>Confirm password</label>
+                            <label>Xác nhận mật khẩu</label>
                             <input
                                 {...register("repeat password")}
                                 placeholder="Xác nhận mật khẩu"
@@ -79,7 +79,7 @@ function Profile() {
                                 onChange={(e) => setConfirmPassword(e.target.value)}
                                 defaultValue={detailUser.password}
                             ></input>
-                            <button type="submit">Update User</button>
+                            <button type="submit">Cập nhật</button>
                         </form>
                     ) : (
                         ""

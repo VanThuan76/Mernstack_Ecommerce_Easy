@@ -58,7 +58,7 @@
 .detail-info-slide {
   width: calc(100% - 430px);
   align-items: center;
-  background: linear-gradient(90deg, #265073, #ECF4D6);
+  background: linear-gradient(90deg, #22092C, #F05941);
   border: 0;
   border-radius: 5px;
   display: flex;
@@ -98,7 +98,7 @@
 
 .saleprice {
   font-weight: 700;
-  color: #9AD0C2;
+  color: #BE3144;
   font-size: 20px;
   margin-right: 1rem;
 }
@@ -120,8 +120,8 @@
 }
 
 .detail-info-right-buy-now a {
-  background: linear-gradient(#2D9596, #9AD0C2);
-  border: solid 1px #9AD0C2;
+  background: linear-gradient(#872341, #BE3144);
+  border: solid 1px #BE3144;
   margin-top: 10px;
   color: #fff;
   font-size: 14px;
@@ -317,9 +317,9 @@
   font-size: 14px;
   color: #fff;
   text-transform: uppercase;
-  border: 1px solid #9AD0C2;
+  border: 1px solid #BE3144;
   border-radius: 4px;
-  background: #9AD0C2;
+  background: #BE3144;
   margin: 0;
 
   outline: none;
@@ -343,7 +343,7 @@
 }
 
 .all-comment-info span {
-  background: #9AD0C2;
+  background: #BE3144;
   font-weight: 500;
   padding: 4px 6px;
   color: white;
@@ -397,7 +397,7 @@
 
 .all-comment-more-chat p {
   margin-bottom: 0;
-  color: #9AD0C2;
+  color: #BE3144;
   margin-left: 1rem;
 }
 

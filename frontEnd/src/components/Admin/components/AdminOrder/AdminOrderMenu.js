@@ -3,7 +3,7 @@ import React from "react";
 function AdminOrderMenu() {
   return (
     <div className="order-menu">
-      <span>Order</span>
+      <span>Đặt hàng</span>
     </div>
   );
 }

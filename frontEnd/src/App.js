@@ -29,6 +29,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import AdminUpdateUser from "./components/Admin/components/AdminUser/AdminUpdateUser";
 import Profile from "./components/Profile/profile";
+import RegisterPageOther from "./pages/RegisterPageOther";
 function App() {
   const { userInfo } = useSelector((state) => state.userSignin);
   return (
@@ -37,7 +38,7 @@ function App() {
       <Routes>
         <Route exact path="/" element={<HomePage />} />
         <Route exact path="/login" element={<LoginPage />} />
-        <Route exact path="/register" element={<RegisterPage />} />
+        <Route exact path="/register" element={<RegisterPageOther />} />
         <Route exact path="/product" element={<ProductsPage />} />
         <Route exact path="/cart" element={<CartPage />} />
         <Route exact path="/detail/:id" element={<DetailPage />} />
@@ -54,10 +55,10 @@ function App() {
           }
         />
         <Route
-          path="/admin/chat"
+          path="/admin/register"
           element={
             <Slide>
-              <AppChatAdmin />
+              <RegisterPage />
             </Slide>
           }
         />

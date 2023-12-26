@@ -14,6 +14,7 @@ import ListTypeProductRouter from "./routers/ListTypeProductRouter.js";
 import OrderRouter from "./routers/OrderRouter.js";
 import PaymentRouter from "./routers/PaymentRouter.js";
 import passport from "./controllers/PassportController.js";
+import { sendEmail } from "./untils/untils.js";
 dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -36,7 +37,7 @@ connectDB();
 app.get("", (req, res) => {
   res.send("API is running>>>");
 });
-
+// app.post('/api/send-email', sendEmail);
 app.use("/api/users", UserRouter);
 app.use("/api/products", ProductRouter);
 app.use("/api/chats", ChatRouter);
@@ -53,31 +54,10 @@ app.get(
     scope: ['profile', 'email']
   })
 );
-// C1: Auth trong server
 app.get('/auth/google/callback', passport.authenticate('google', {
   successRedirect: 'http://localhost:3000',
   failureRedirect: 'http://localhost:3000/login'
 }));
-// C2: Auth rồi truyền data thông qua url redirect 
-// app.get(
-//   '/auth/google/callback',
-//   (req, res, next) => {
-//     passport.authenticate('google', (err, user, info) => {
-//       if (err) {
-//         return res.status(500).json({ message: 'Internal Server Error' });
-//       }
-//       if (!user) {
-//         return res.status(401).json({ message: 'Unauthorized' });
-//       }
-//       req.logIn(user, (err) => {
-//         if (err) {
-//           return res.status(500).json({ message: 'Internal Server Error' });
-//         }
-//         return res.status(200).json({ message: 'Authentication Successful' });
-//       });
-//     })(req, res, next);
-//   }
-// );
 
 app.use(errorHandler);
 

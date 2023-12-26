@@ -19,7 +19,7 @@ p {
 }
 
 .hotsale h2 {
-  color: #2D9596;
+  color: #872341;
   display: flex;
   text-transform: uppercase;
 }
@@ -82,7 +82,7 @@ p.hotsale-listproduct-product-name {
 } */
 
 .hotsale-listproduct-product .price1 {
-  color: #2D9596;
+  color: #872341;
   font-weight: 700;
   font-size: 16px;
 }
@@ -126,7 +126,7 @@ p.hotsale-listproduct-product-name {
 .buy a {
   padding: 7px 17px;
   border-radius: 4px;
-  background: #2D9596;
+  background: #872341;
 
   color: white;
   border: none;

@@ -34,7 +34,7 @@ function Comment({productId}) {
         <div className="comment-area" style={{ display: "flex", alignItems: "center" }}>
           <img style={{ borderRadius: "25%" }} src="/images/logo.jpg"></img>
           <textarea
-            placeholder="Hãy để lại thắc mắc của bạn, TMART sẽ phản hồi trong vòng 1 giờ từ 8h sáng - 10h tối mỗi ngày."
+            placeholder="Hãy để lại thắc mắc của bạn, ONLINE SHOP sẽ phản hồi trong vòng 1 giờ từ 8h sáng - 10h tối mỗi ngày."
             rows={10}
             cols={3}
             value={value}

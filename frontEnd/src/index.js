@@ -11,8 +11,8 @@ root.render(
   <Provider store={store}>
     <React.StrictMode>
       <Helmet>
-        <title>TMART</title>
-        <meta name="description" content="TMART" />
+        <title>ONLINE SHOP</title>
+        <meta name="description" content="ONLINE SHOP" />
         {/* Các thẻ head tùy chỉnh khác */}
       </Helmet>
       <App />

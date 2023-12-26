@@ -4,6 +4,8 @@ import { getAllUser } from "../../../../actions/UserAction";
 import ListUser from "./ListUser";
 import "./adminuser.css";
 import CircularProgress from "@mui/material/CircularProgress";
+import { Link } from "react-router-dom";
+import { Button } from "@mui/material";
 
 function AdminUser() {
   const dispatch = useDispatch();
@@ -13,7 +15,10 @@ function AdminUser() {
   }, [dispatch]);
   return (
     <div className="admin-user">
-      <span>Quản lý người dùng</span>
+      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+        <span>Quản lý người dùng</span>
+        <Link className="add-user" to="/admin/register">Tạo tài khoản</Link>
+      </div>
       {users ? (
         <ListUser users={users} />
       ) : (

@@ -99,7 +99,7 @@ function FilterMenu() {
         </div>
       </div>
       <div style={{ marginRight: 60 }}>
-        <h3>Thể loại</h3>
+        <h3>Thể loại(Hình ảnh)</h3>
         <div className="filter-menu-firm">{List ? List.map((item, i) => MenuFirmProduct(item, i)) : ""}</div>
       </div>
     </div>

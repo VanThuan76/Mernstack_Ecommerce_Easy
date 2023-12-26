@@ -73,7 +73,7 @@ function Slide({ children }) {
               Quản lý đặt hàng
             </p>
           </Link>
-          <Link
+          {/* <Link
             to="/admin/chat"
             className={location.pathname === "/admin/chat" ? "sidebar-list-item active" : "sidebar-list-item"}
           >
@@ -81,7 +81,7 @@ function Slide({ children }) {
               <AiOutlineWechat />
             </span>
             <p>Chat</p>
-          </Link>
+          </Link> */}
         </div>
       </div>
       <div className="layout__content">

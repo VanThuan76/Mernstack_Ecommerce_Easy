@@ -1,5 +1,5 @@
 .register-container {
-  border: 1px solid #89B9AD;
+  border: 1px solid #BE3144;
   border-radius: 20px;
   width: 40%;
   margin: 50px auto;
@@ -39,7 +39,7 @@
 }
 
 .signup-page input[type="submit"] {
-  background: #89B9AD;
+  background: #BE3144;
   color: white;
   max-width: 100%;
   cursor: pointer;

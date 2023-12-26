@@ -87,43 +87,44 @@ function AppChat() {
     }
   };
   return (
-    <div className="appchat">
-      {openChat ? null : (
-        <div className="openchat">
-          <svg
-            onClick={() => setOpenChat(!openChat)}
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            style={{
-              fill: "#fff",
-            }}
-          >
-            <path d="M5 18v3.766l1.515-.909L11.277 18H16c1.103 0 2-.897 2-2V8c0-1.103-.897-2-2-2H4c-1.103 0-2 .897-2 2v8c0 1.103.897 2 2 2h1zM4 8h12v8h-5.277L7 18.234V16H4V8z"></path>
-            <path d="M20 2H8c-1.103 0-2 .897-2 2h12c1.103 0 2 .897 2 2v8c1.103 0 2-.897 2-2V4c0-1.103-.897-2-2-2z"></path>
-          </svg>
-        </div>
-      )}
+    <></>
+    // <div className="appchat">
+    //   {openChat ? null : (
+    //     <div className="openchat">
+    //       <svg
+    //         onClick={() => setOpenChat(!openChat)}
+    //         xmlns="http://www.w3.org/2000/svg"
+    //         width="24"
+    //         height="24"
+    //         viewBox="0 0 24 24"
+    //         style={{
+    //           fill: "#fff",
+    //         }}
+    //       >
+    //         <path d="M5 18v3.766l1.515-.909L11.277 18H16c1.103 0 2-.897 2-2V8c0-1.103-.897-2-2-2H4c-1.103 0-2 .897-2 2v8c0 1.103.897 2 2 2h1zM4 8h12v8h-5.277L7 18.234V16H4V8z"></path>
+    //         <path d="M20 2H8c-1.103 0-2 .897-2 2h12c1.103 0 2 .897 2 2v8c1.103 0 2-.897 2-2V4c0-1.103-.897-2-2-2z"></path>
+    //       </svg>
+    //     </div>
+    //   )}
 
-      {openChat ? (
-        <div className="chatuser">
-          <div className="chatuser-user">
-            <span className="chatuser-user-name">{userInfo.name}</span>
-            <span
-              className="chatuser-user-line"
-              onClick={() => setOpenChat(!openChat)}
-            >
-              x
-            </span>
-          </div>
+    //   {openChat ? (
+    //     <div className="chatuser">
+    //       <div className="chatuser-user">
+    //         <span className="chatuser-user-name">{userInfo.name}</span>
+    //         <span
+    //           className="chatuser-user-line"
+    //           onClick={() => setOpenChat(!openChat)}
+    //         >
+    //           x
+    //         </span>
+    //       </div>
 
-          {messages ? <ListMessage messages={messages} user={userInfo} /> : ""}
+    //       {messages ? <ListMessage messages={messages} user={userInfo} /> : ""}
 
-          <TypeMessage onSubmit={handleChatFormSubmit} />
-        </div>
-      ) : null}
-    </div>
+    //       <TypeMessage onSubmit={handleChatFormSubmit} />
+    //     </div>
+    //   ) : null}
+    // </div>
   );
 }
 

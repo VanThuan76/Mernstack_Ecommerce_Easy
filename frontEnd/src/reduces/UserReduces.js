@@ -37,6 +37,10 @@ export const getAllUserReducer = (state = {}, action) => {
       return { ...state };
     }
 
+    case "BLOCK_USER": {
+      return { ...state };
+    }
+
     default:
       return state;
   }

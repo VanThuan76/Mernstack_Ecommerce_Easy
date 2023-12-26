@@ -26,10 +26,10 @@ function Dashboard() {
           <div className="dashboard-top-content">
             <li className="dashboard-top-content-avatar">
               <img
-                src="/"
+                src="/images/logo.jpg"
                 alt=""
               ></img>
-              <span>Đoàn tú</span>
+              <span>Admin</span>
             </li>
             <li className="dashboard-top-content-bell">
               <AiOutlineBell />

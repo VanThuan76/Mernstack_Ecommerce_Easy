@@ -2,19 +2,22 @@ import asyncHandler from "express-async-handler";
 import UserModel from "../models/UserModel.js";
 import bcrypt from "bcryptjs";
 import { generateToken } from "../middlewares/Auth.js";
+import { sendEmail } from "../untils/untils.js";
 
 const registerUser = asyncHandler(async (req, res) => {
-  const { name, email, password, address, phone } = req.body;
+  const { name, email, address, phone } = req.body;
   try {
     const userExist = await UserModel.findOne({ email });
     if (userExist) {
       res.status(400);
       throw new Error("User already exists");
     }
-
+    const passwordPrefix = email.split('@')[0];
     const salt = await bcrypt.genSalt(10);
-    const hashPassword = await bcrypt.hash(password, salt);
-
+    const hashPassword = await bcrypt.hash(passwordPrefix, salt);
+    const bodyEmail = {
+      email: email
+    }
     const user = await UserModel.create({
       name,
       email,
@@ -22,16 +25,19 @@ const registerUser = asyncHandler(async (req, res) => {
       address,
       phone,
       isAdmin: false,
+      isBlock: false
     });
+    sendEmail(bodyEmail);
     if (user) {
       res.status(201).send({
         _id: user._id,
         name: user.name,
         email: user.email,
-        password: user.password,
+        password: passwordPrefix,
         address: user.address,
         phone: user.phone,
         isAdmin: user.isAdmin,
+        isBlock: user.isBlock,
         token: generateToken(user._id),
       });
     } else {
@@ -48,6 +54,11 @@ const loginUser = asyncHandler(async (req, res) => {
   try {
     const user = await UserModel.findOne({ email });
     if (user && (await bcrypt.compare(password, user.password))) {
+      if (user.isBlock) {
+        res.status(401);
+        throw new Error("User is blocked. Please contact support for assistance.");
+      }
+
       res.json({
         _id: user._id,
         name: user.name,
@@ -67,15 +78,19 @@ const loginUser = asyncHandler(async (req, res) => {
   }
 });
 
+
 const updateProfile = asyncHandler(async (req, res) => {
-  const { name, email, address, phone } = req.body;
+  const { name, email, address, phone, password } = req.body;
   try {
     const user = await UserModel.findById(req.user._id);
+    const salt = await bcrypt.genSalt(10);
+    const hashPassword = await bcrypt.hash(password, salt);
     if (user) {
       user.name = name || user.name;
       user.email = email || user.email;
       user.address = address || user.address;
       user.phone = phone || user.phone;
+      user.password = hashPassword || user.password;
       const updateUser = await user.save();
 
       res.json({
@@ -98,14 +113,17 @@ const updateProfile = asyncHandler(async (req, res) => {
 });
 const updateProfileUser = asyncHandler(async (req, res) => {
   const userId = req.params.id;
-  const { name, email, address, phone, isAdmin } = req.body;
+  const { name, email, address, phone, isAdmin, password } = req.body;
   try {
     const user = await UserModel.findById(userId);
+    const salt = await bcrypt.genSalt(10);
+    const hashPassword = await bcrypt.hash(password, salt);
     if (user) {
       user.name = name || user.name;
       user.email = email || user.email;
       user.address = address || user.address;
       user.phone = phone || user.phone;
+      user.password = hashPassword || user.password;
       user.isAdmin = isAdmin ?? user.isAdmin;
 
       const updatedUser = await user.save();
@@ -185,7 +203,30 @@ const getUserById = asyncHandler(async (req, res) => {
   }
 });
 
+const blockUser = asyncHandler(async (req, res) => {
+  try {
+    const user = await UserModel.findById(req.params.id);
+    if (user) {
+      if (user.isAdmin) {
+        res.status(400);
+        throw new Error("Can't block/unblock admin user");
+      }
+      
+      user.isBlock = !user.isBlock;
+      await user.save();
+      
+      res.json({ message: `User ${user.isBlock ? 'blocked' : 'unblocked'} successfully` });
+    } else {
+      res.status(400);
+      throw new Error("User not found");
+    }
+  } catch (error) {
+    res.status(400).json({ message: error.message });
+  }
+});
+
 export {
+  blockUser,
   registerUser,
   loginUser,
   updateProfile,

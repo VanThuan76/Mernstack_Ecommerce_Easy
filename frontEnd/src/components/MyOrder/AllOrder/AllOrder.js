@@ -46,8 +46,8 @@ function AllOrder() {
             myOrders.map((item) => orderParent(item))
           ) : (
             <div className="no-product">
-              <img src="/images/noproduct.webp" />
-              <span>You have no orders</span>
+              <img src="/images/logo.jpg" />
+              <span>Bạn không có đơn nào</span>
             </div>
           )}
         </div>

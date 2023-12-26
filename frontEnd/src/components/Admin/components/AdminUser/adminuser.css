@@ -6,7 +6,16 @@
   line-height: 60px;
   padding-left: 1rem;
 }
-
+.add-user{
+  display: flex;
+  background-color: #4e74df;
+  text-decoration: none;
+  padding: 8px 14px;
+  margin-right: 40px;
+  border-radius: 6px;
+  color: #fff;
+  font-size: 14px;
+}
 .admin-user-list {
   background: white;
   margin: 0 1rem;
