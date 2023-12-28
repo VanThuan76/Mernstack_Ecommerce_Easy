@@ -40,14 +40,6 @@ const addProduct = asyncHandler(async (req, res) => {
       image: result.secure_url,
       cloudinary_id: result.public_id,
       rating: 0,
-      os: req.body.os,
-      ram: req.body.ram,
-      battery: req.body.battery,
-      rom: req.body.rom,
-      camera: req.body.camera,
-      special: req.body.special,
-      design: req.body.design,
-      screen: req.body.screen,
     });
     const newProduct = await product.save();
     if (newProduct) {
@@ -68,14 +60,6 @@ const updateProduct = asyncHandler(async (req, res) => {
     price,
     salePrice,
     type,
-    os,
-    ram,
-    battery,
-    rom,
-    camera,
-    special,
-    design,
-    screen,
   } = req.body;
   try {
     const product = await ProductModel.findById(req.body._id);
@@ -90,18 +74,9 @@ const updateProduct = asyncHandler(async (req, res) => {
       product.price = price || product.price;
       product.salePrice = salePrice || product.salePrice;
       product.type = type || product.type;
-      product.os = os || product.os;
-      product.ram = ram || product.ram;
       product.image = result?.secure_url || product.image;
       product.rating = product.rating;
       product.cloulinary_id = result?.public_id || product.cloudinary_id;
-      product.battery = battery || product.battery;
-      product.rom = rom || product.rom;
-      product.camera = camera || product.camera;
-      product.special = special || product.special;
-      product.design = design || product.design;
-      product.screen = screen || product.screen;
-
       const updateProduct = await product.save();
       if (updateProduct) {
         res.json(updateProduct);
@@ -133,13 +108,14 @@ const searchProduct = asyncHandler(async (req, res) => {
   try {
     const name = req.query.name;
     const product = await ProductModel.find({
-      name : name,
-    })
-    product.length > 0 ? res.json(product) : res.json({message: "No found any product"})
+      name: { $regex: name, $options: 'i' }, // Sử dụng $regex để tìm kiếm không phân biệt chữ hoa, thường
+    });
+
+    product.length > 0 ? res.json(product) : res.json({ message: "No product found" });
   } catch (error) {
-    res.status(400).json({message: error.message})
+    res.status(400).json({ message: error.message });
   }
-})
+});
 
 const filterProductByType = asyncHandler(async (req, res) => {
   try {

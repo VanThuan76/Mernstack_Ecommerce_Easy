@@ -41,9 +41,7 @@ function Payment({ isVerified }) {
       status: "pendding",
       paymentMethod: "payLater",
     };
-
     await dispatch(createOrder(OrderPaid));
-    // history.push("/orderSuccess");
     window.location.href = "http://localhost:3000/orderSuccess";
   };
 

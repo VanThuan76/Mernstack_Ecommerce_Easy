@@ -1,7 +1,7 @@
 import asyncHandler from "express-async-handler";
 import OrderModel from "../models/OrderModel.js";
 import axios from "axios";
-
+import ProductModel from "../models/ProductModel.js";
 const GetAllOrder = asyncHandler(async (req, res) => {
   try {
     const Order = await OrderModel.find({}).sort({ createdAt: -1 });
@@ -20,6 +20,19 @@ const createOrder = asyncHandler(async (req, res) => {
     if (req.body.orderItems.length === 0) {
       res.json({ message: "Cart is emty" });
     } else {
+      const itemIds = req.body.orderItems.map((item) => item._id);
+      const itemQuantities = req.body.orderItems.map((item) => item.qty);
+      const products = await ProductModel.find({ _id: { $in: itemIds } });
+      if (products.length === 0) {
+      } else {
+        for (let i = 0; i < products.length; i++) {
+          const updatedQuantity = products[i].amount - itemQuantities[i];
+          await ProductModel.updateOne(
+            { _id: products[i]._id },
+            { $set: { amount: updatedQuantity } }
+          ).exec();
+        }
+      }
       const order = await OrderModel.create({
         order_code: "",
         to_ward_code: req.body.to_ward_code,

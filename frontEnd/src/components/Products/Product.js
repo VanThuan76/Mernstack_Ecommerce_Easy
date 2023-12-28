@@ -1,13 +1,19 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 // import { useDispatch } from "react-redux";
 import { message } from "antd";
 import { formatPrice } from "../../unitls";
-import { AddToCart } from "../../actions/CartAction";
+import { AddToCart, DeleteQtyProduct } from "../../actions/CartAction";
 import { useDispatch } from "react-redux";
 
 function Product({ product }) {
+  useEffect(() => {
+    const action = DeleteQtyProduct(product);
+    dispatch(action);
+  }, [product]);
+  const [checkSpam, isCheckSpam] = useState(false);
+  let count = 0;
   const dispatch = useDispatch();
 
   const success = () => {
@@ -25,9 +31,16 @@ function Product({ product }) {
   };
 
   const AddProductToCart = async (product) => {
-    const action = AddToCart(product);
-    await dispatch(action);
-    success();
+    if (product.amount <= count) {
+      count = 0;
+      isCheckSpam(true);
+      return;
+    } else {
+      const action = AddToCart(product);
+      await dispatch(action);
+      success();
+      count++;
+    }
   };
   return (
     <div className="hotsale-listproduct-product">
@@ -45,14 +58,18 @@ function Product({ product }) {
         </div>
       ) : null}
       <div className="buy">
-        <Link
-          to=""
-          onClick={(e) => {
-            AddProductToCart(product);
-          }}
-        >
-          MUA NGAY
-        </Link>
+        {product.amount <= 0 || checkSpam ? (
+          <Link to="">ĐÃ HẾT HÀNG</Link>
+        ) : (
+          <Link
+            to=""
+            onClick={(e) => {
+              AddProductToCart(product);
+            }}
+          >
+            MUA NGAY
+          </Link>
+        )}
       </div>
     </div>
   );

@@ -49,9 +49,9 @@ function ProductCart({ product }) {
             </svg>
           </div>
           <ul className="button-event">
-            <li onClick={() => handleDeleteProduct(product)}>-</li>
+            {/* <li onClick={() => handleDeleteProduct(product)}>-</li> */}
             <li style={{ margin: "0 10px", backgroundColor: "#fff" }}>{product.qty}</li>
-            <li onClick={() => handleAddProduct(product)}>+</li>
+            {/* <li onClick={() => handleAddProduct(product)}>+</li> */}
           </ul>
         </div>
       </div>

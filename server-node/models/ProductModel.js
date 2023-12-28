@@ -44,15 +44,6 @@ const Product = mongoose.Schema(
 
     reviews: [reviewSchema],
     comments: [commentProduct],
-
-    os: String,
-    ram: String,
-    battery: String,
-    rom: String,
-    camera: String,
-    special: String,
-    design: String,
-    screen: String,
   },
   {
     timestamps: true,

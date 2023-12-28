@@ -24,7 +24,7 @@ function HotSale({ type }) {
     <div className="hotsale">
       <h2>{name}</h2>
       {hotProducts ? (
-        <ListPoducts HotSaleProducts={handlePercentDiscount(hotProducts)} />
+        <ListPoducts HotSaleProducts={handlePercentDiscount(hotProducts.filter((product => product.amount > 0)))} />
       ) : (
         <div className="no-product">
           <img src="/images/logo.jpg" />

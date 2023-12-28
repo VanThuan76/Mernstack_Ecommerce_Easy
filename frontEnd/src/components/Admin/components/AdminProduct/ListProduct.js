@@ -23,6 +23,7 @@ function ListProduct({ listProducts }) {
             <th style={{ minWidth: 200 }}>Tên</th>
             <th style={{ minWidth: 180 }}>Giá</th>
             <th style={{ minWidth: 100 }}>Loại</th>
+            <th style={{ minWidth: 100 }}>Số lượng</th>
             <th style={{ minWidth: 100 }}>Hành động</th>
           </tr>
           {listProducts

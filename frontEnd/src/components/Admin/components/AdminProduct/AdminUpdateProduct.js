@@ -51,16 +51,6 @@ function AdminUpdateProduct() {
     formData.append("type", activeTypeProduct ? activeTypeProduct : detailProduct.type);
     formData.append("image", image);
     formData.append("_id", id);
-
-    formData.append("os", data.os);
-    formData.append("ram", data.ram);
-    formData.append("battery", data.battery);
-    formData.append("rom", data.rom);
-    formData.append("camera", data.camera);
-    formData.append("special", data.special);
-    formData.append("design", data.design);
-    formData.append("screen", data.screen);
-
     try {
       await dispatch(saveProduct(formData));
       navigate("/admin/product");

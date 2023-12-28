@@ -14,8 +14,8 @@ function Search(props) {
           <ListPoducts HotSaleProducts={handlePercentDiscount(products)} />
         ) : (
           <div className="no-product">
-            <img src="/images/noproduct.webp" />
-            <span style={{ color: "#d70018", fontWeight: 600 }}>NOT FOUND</span>
+            <img src="/images/logo.jpg" />
+            <span style={{ color: "#d70018", fontWeight: 600 }}>Không tìm thấy</span>
           </div>
         )}
       </div>

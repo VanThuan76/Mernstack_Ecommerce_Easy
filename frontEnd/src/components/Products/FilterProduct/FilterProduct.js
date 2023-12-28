@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { filterProductByPrice } from "../../../actions/product/ProductAction";
+import { filterProductByPrice, getAllProduct } from "../../../actions/product/ProductAction";
 import FilterMenu from "../FilterMenu/FilterMenu";
 import Slider from "@mui/material/Slider";
 import "../FilterProduct/index.css";
@@ -8,11 +8,14 @@ function FilterProduct() {
   const dispatch = useDispatch();
   // const [startPrice, setStartPrice] = useState(0);
   // const [endPrice, setEndPrice] = useState(0);
-  const [values, setValues] = useState([0, 100000000]);
+  const [values, setValues] = useState([0, 1000000]);
 
   const FilterProductByPrice = (values) => {
+    if(values[0] === 0){
+      dispatch(getAllProduct());
+    }
     let startPrice = parseInt(values?.[0]) || 0;
-    let endPrice = parseInt(values?.[1]) || 100000000;
+    let endPrice = parseInt(values?.[1]) || 1000000;
     dispatch(filterProductByPrice(startPrice, endPrice));
   };
 
@@ -41,7 +44,7 @@ function FilterProduct() {
             setValues(value);
           }}
           min={0}
-          max={100000000}
+          max={1000000}
           sx={{
             width: "100%",
             margin: "0 auto",
